@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  ip-monitor:
+    build: .
+    image: ip-monitor
+    env_file:
+      - .env
+    restart: always
