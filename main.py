@@ -1,3 +1,4 @@
+from copy import deepcopy
 import requests
 import os
 import time
@@ -33,7 +34,7 @@ def main():
         new_ip = get_public_ipv4()
         if new_ip and new_ip != last_ip:
             send_signal_message(phone_number, api_key, f"Public IP changed: {last_ip} -> {new_ip}")
-            last_ip = new_ip
+            last_ip = deepcopy(new_ip)
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
